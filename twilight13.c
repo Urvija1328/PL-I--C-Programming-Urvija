@@ -1,20 +1,64 @@
-/*Program(13)->Write a program using the switch-case statement to create a menu-driven calculator that repeatedly performs arithemetic operations until the user exists the program.*/
-
+/*Program(13): Write a program using the switch-case statement to create a menu-driven calculator that repeatedly performs arithmetic operations until the user exits the program. */
 #include<stdio.h>
 int main()
 {
-    int num,i=1;
+ int choice;
+ float num1, num2, result;
+ 
+ do
+ {
+   printf("\n===== Menu Driven Calculator =====\n");
+   printf("1. Addition\n");
+   printf("2. Subtraction\n");
+   printf("3. Multiplication\n");
+   printf("4. Division\n");
+   printf("5. Exit\n");
+   printf("Enter your choice:");
+   scanf("%d", &choice);
+   switch(choice)
+   {
+     case 1:
+        printf("Enter two numbers:");
+        scanf("%f%f", &num1, &num2);
+        result = num1 + num2;
+        printf("result = %.2f\n",result);
+        break;
 
-    printf("Enter a number:");
-    scanf("%d",&num);
+     case 2:
+        printf("Enter two numbers:");
+        scanf("%f%f", &num1, &num2);
+        result = num1 - num2;
+        printf("result = %.2f\n",result);
+        break;
+       
+     case 3:
+        printf("Enter two numbers:");
+        scanf("%f%f", &num1, &num2);
+        result = num1 * num2;
+        printf("result = %.2f\n",result);
+        break;
 
-    printf("\n Multiplication Table Of %d\n",num);
+     case 4:
+        printf("Enter two numbers:");
+        scanf("%f%f", &num1, &num2);
+     
+        if(num2 !=0)
+           printf("result = %.2f\n",num1 / num2);
+        else
+           printf("Error! Division by zero is not allowed.\n");
+        break;
 
-    do
-        {
-            printf("%d*%d=%d\n",num,i,num*i);
-            i++;
-        }
-        while(i<=10);
-    return 0;
+     case 5:
+        printf("Exiting Calculator...\n");
+        break;
+
+     default:
+        printf("Invalid choice! Please try again.\n");
+   }
+
+
+  }while(choice != 5);
+  
+   return 0;
+
 }
